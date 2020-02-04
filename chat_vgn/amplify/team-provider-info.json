@@ -1,0 +1,15 @@
+{
+    "chatvgnenv": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-chatvgn-chatvgnenv-131946-authRole",
+            "UnauthRoleArn": "arn:aws:iam::035764117684:role/amplify-chatvgn-chatvgnenv-131946-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::035764117684:role/amplify-chatvgn-chatvgnenv-131946-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-chatvgn-chatvgnenv-131946-deployment",
+            "UnauthRoleName": "amplify-chatvgn-chatvgnenv-131946-unauthRole",
+            "StackName": "amplify-chatvgn-chatvgnenv-131946",
+            "StackId": "arn:aws:cloudformation:us-east-1:035764117684:stack/amplify-chatvgn-chatvgnenv-131946/9612bb40-4705-11ea-9ddb-12dffdf25cac",
+            "AmplifyAppId": "d13zty6jhidhyz"
+        }
+    }
+}
