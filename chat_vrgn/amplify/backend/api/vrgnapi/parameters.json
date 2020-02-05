@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "vrgnapi",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authchatvrgn46e834a5",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

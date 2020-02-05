@@ -1,0 +1,20 @@
+{
+    "vrgnenv": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-chatvrgn-vrgnenv-133112-authRole",
+            "UnauthRoleArn": "arn:aws:iam::035764117684:role/amplify-chatvrgn-vrgnenv-133112-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::035764117684:role/amplify-chatvrgn-vrgnenv-133112-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-chatvrgn-vrgnenv-133112-deployment",
+            "UnauthRoleName": "amplify-chatvrgn-vrgnenv-133112-unauthRole",
+            "StackName": "amplify-chatvrgn-vrgnenv-133112",
+            "StackId": "arn:aws:cloudformation:us-east-1:035764117684:stack/amplify-chatvrgn-vrgnenv-133112/594c6550-47d0-11ea-8522-0a200f00c284",
+            "AmplifyAppId": "d2fg6nfvimj4lz"
+        },
+        "categories": {
+            "auth": {
+                "chatvrgn46e834a5": {}
+            }
+        }
+    }
+}
