@@ -1,4 +1,4 @@
-type Chat {
+type Chat @aws_iam {
 	id: ID!
 	name: String!
 	content: String
@@ -80,9 +80,11 @@ input ModelChatFilterInput {
 
 type Mutation {
 	createChat(input: CreateChatInput!): Chat
+		@aws_iam
 	updateChat(input: UpdateChatInput!): Chat
 	deleteChat(input: DeleteChatInput!): Chat
-  globalChat(input: GlobalChatInput!): Chat
+ 	globalChat(input: GlobalChatInput!): Chat
+		@aws_iam
 }
 
 input CreateChatInput {
