@@ -1,4 +1,4 @@
-type Chat @aws_iam {
+type Chat @aws_cognito_user_pools @aws_iam {
 	id: ID!
 	name: String!
 	content: String

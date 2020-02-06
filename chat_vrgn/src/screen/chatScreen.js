@@ -7,12 +7,39 @@ import {
     TextInput
 } from 'react-native';
 
-export default () => {
-    const flatListRef = useRef(null);
+import gql from 'graphql-tag'
+import { graphql } from 'react-apollo'
+import { useQuery, useMutation, useSubscription } from 'react-apollo-hooks'
 
+import * as mutations from '../graphql/mutations';
+import * as queries from '../graphql/queries';
+import * as subscriptions from '../graphql/subscriptions'
+
+const listChats = () => {
+    return useQuery(gql(queries.listChats), {
+        fetchPolicy: 'cache-and-network',
+      });
+}
+const createChat = () => {
+    return useMutation(gql(mutations.createChat))
+}
+// const subscribeToNewChats = () => {
+//     return 
+// }
+
+
+export default (props) => {
+    console.log(props)
+    const flatListRef = useRef(null);
+    const data = listChats()
+    // console.log(data)
     const [ chatList, setChatList ] = useState([])
 
-    chatInput = (chatData) => {
+    // useEffect(() => {
+    //     props.subscribeToNewChats()
+    // },[])
+
+    const chatInput = (chatData) => {
         setChatList(chatList.concat([{writer: '', chat:chatData}]))
     }
 
@@ -97,3 +124,27 @@ function InputContainer(props){
         </View>
     )
 }
+
+
+// export default graphql(gql(queries.listChats), {
+//     options: {
+//       fetchPolicy: 'cache-and-network'
+//     },
+//     props: props => ({
+//       chats: props.data.listChats ? props.data.listChats.items : [],
+//       subscribeToNewChats: params => {
+//         props.data.subscribeToMore({
+//         //   document: gql(subscriptions.onCreateChat),
+//         //   updateQuery: (prev, { subscriptionData: { data : { onCreateChat } } }) => ({
+//         //     ...prev,
+//         //     listChats: { __typename: 'ChatConnection', items: [onCreateChat, ...prev.listChats.items.filter(todchato => chat.id !== onCreateChat.id)] }
+//         //   })
+//           document: gql(subscriptions.onGlobalChat),
+//           updateQuery: (prev, { subscriptionData: { data : { onGlobalChat } } }) => ({
+//             ...prev,
+//             listChats: { __typename: 'ChatConnection', items: [onGlobalChat, ...prev.listChats.items.filter(chat => chat.id !== onGlobalChat.id)] }
+//           })
+//         })
+//       }
+//     })
+// })(ChatScreen)

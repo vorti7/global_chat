@@ -13,6 +13,7 @@ import com.reactnativenavigation.react.NavigationReactNativeHost;
 import com.reactnativenavigation.react.ReactGateway;
 
 import com.amazonaws.RNAWSCognitoPackage;
+import com.reactnativecommunity.netinfo.NetInfoPackage;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
@@ -41,7 +42,8 @@ public class MainApplication extends NavigationApplication {
         // No need to add RnnPackage and MainReactPackage
         return Arrays.<ReactPackage>asList(
             // eg. new VectorIconsPackage()
-            new RNAWSCognitoPackage()
+            new RNAWSCognitoPackage(),
+            new NetInfoPackage()
         );
     }
 

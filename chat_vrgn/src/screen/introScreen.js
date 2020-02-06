@@ -15,7 +15,7 @@ import React,{
     const goPressed = () => {
       Auth.currentSession()
         .then(data => {
-          console.log(data)
+          // console.log(data)
           Navigation.push(props.componentId, {
               component: {
                 name: 'ChatScreen',
