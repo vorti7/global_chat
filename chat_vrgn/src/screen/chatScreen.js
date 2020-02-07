@@ -15,29 +15,35 @@ import * as mutations from '../graphql/mutations';
 import * as queries from '../graphql/queries';
 import * as subscriptions from '../graphql/subscriptions'
 
-const listChats = () => {
-    return useQuery(gql(queries.listChats), {
-        fetchPolicy: 'cache-and-network',
-      });
-}
-const createChat = () => {
-    return useMutation(gql(mutations.createChat))
-}
-// const subscribeToNewChats = () => {
-//     return 
-// }
-
+const aQuery = gql`
+    query ListChats(
+            $filter: ModelChatFilterInput
+            $limit: Int
+            $nextToken: String
+        ) {
+        listChats(filter: $filter, limit: $limit, nextToken: $nextToken) {
+            items {
+                id
+                name
+                content
+            }
+            nextToken
+        }
+    }
+`;
 
 export default (props) => {
     console.log(props)
     const flatListRef = useRef(null);
-    const data = listChats()
-    // console.log(data)
     const [ chatList, setChatList ] = useState([])
 
     // useEffect(() => {
     //     props.subscribeToNewChats()
     // },[])
+    
+    const { data, error, loading } = useQuery(aQuery, {
+        fetchPolicy: 'cache-and-network',
+    });
 
     const chatInput = (chatData) => {
         setChatList(chatList.concat([{writer: '', chat:chatData}]))

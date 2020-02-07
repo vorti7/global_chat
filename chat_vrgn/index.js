@@ -27,8 +27,10 @@ const client = new AWSAppSyncClient({
     type: awsconfig.aws_appsync_authenticationType,
     jwtToken: async () =>
       (await Auth.currentSession()).getIdToken().getJwtToken(),
-    
-  }
+  },
+  // offlineConfig: {
+  //   keyPrefix: 'private',
+  // },
 })
 
 const WithProvider = (Component) => {
@@ -46,6 +48,18 @@ const WithProvider = (Component) => {
     }
   }
 } 
+
+// const WithProvider = (Component) => {
+//   return (
+//     <ApolloProvider client={client}>
+//       <ApolloHooksProvider client={client}>
+//         <Rehydrated>
+//           <Component {...this.props} />
+//         </Rehydrated>
+//       </ApolloHooksProvider>
+//     </ApolloProvider>
+//   )
+// }
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({

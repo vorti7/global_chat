@@ -11,7 +11,7 @@ import React,{
   import { Auth } from 'aws-amplify';
   
   const introScreen = (props) => {
-
+    console.log(props)
     const goPressed = () => {
       Auth.currentSession()
         .then(data => {
